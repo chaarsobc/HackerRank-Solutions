@@ -1,0 +1,13 @@
+#code written in python
+
+def repeatedString(s, n):
+    l = len(s)
+    c = 0
+    x = 0
+    for i in range (0,l):
+        if s[i] == 'a':
+            c += 1    #increment of the counter
+    for i in range (0,n%l):
+        if s[i] == 'a':
+            x += 1    #increment of the counter
+    return n//l*c+x
