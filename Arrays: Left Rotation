@@ -1,0 +1,11 @@
+#code written in python
+
+def rotLeft(a, d):
+    n = len(a)
+    res = [0]*n
+    for i in range (0,n):
+        if i<d:
+            res[n-d+i] = a[i] #begin iterations
+        else:
+            res[i-d] = a[i]
+    return res
