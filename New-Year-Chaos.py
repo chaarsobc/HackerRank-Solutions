@@ -9,7 +9,7 @@ def minimumBribes(q):
             return
         for j in range(max(0, q[i] - 2),i):
             if q[j] > q[i]:
-                bribes+=1
+                bribes += 1
     print(bribes)        
                 
                 
