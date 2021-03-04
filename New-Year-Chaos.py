@@ -3,15 +3,22 @@
 def minimumBribes(q):
     n = len(q)
     bribes = 0
-    res = [0]*n
-    for i in range(n):
-        res[i] = q[i]-(i+1)   #computes the individual bribes to check for threshold of 2 bribes per person
-    for i in range(n):
-        for j in range (n-i-1):
-            if q[j]>q[j+1]:    #simple bubble sort algo used
-                bribes += 1     #computes the total number of bribes
-                q[j],q[j+1] = q[j+1],q[j]
-    if max(res)>2:
-        print("Too chaotic")
-    else:
-        print(bribes)
+    for i in range(n-1,-1,-1):
+        if q[i] - i > 3:
+            print('Too chaotic')
+            return
+        for j in range(max(0, q[i] - 2),i):
+            if q[j] > q[i]:
+                bribes+=1
+    print(bribes)        
+                
+                
+if __name__ == '__main__':
+    t = int(input())
+
+    for t_itr in range(t):
+        n = int(input())
+
+        q = list(map(int, input().rstrip().split()))
+
+        minimumBribes(q)
